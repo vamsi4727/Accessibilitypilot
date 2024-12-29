@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get your website's Accessibility Score</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Get your website's Accessibility Score</h1>
+            <p class="subtitle">Test your website for WCAG compliance and accessibility issues</p>
+        </header>
+
+        <main>
+            <form id="testForm" class="test-form">
+                <div class="input-group">
+                    <label for="url">Website URL to Test:</label>
+                    <div class="url-input-wrapper">
+                        <input type="url" 
+                               id="url" 
+                               name="url" 
+                               required 
+                               placeholder="https://example.com"
+                               pattern="https?://.*"
+                               title="Please enter a valid URL starting with http:// or https://">
+                    </div>
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="primary-button">
+                        <span class="button-text">Test Accessibility</span>
+                        <div class="spinner" hidden></div>
+                    </button>
+                </div>
+            </form>
+
+            <div id="results" class="results-container" hidden>
+                <div class="results-header">
+                    <h2>Test Results</h2>
+                    <button id="exportPdf" class="secondary-button" hidden>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Export to PDF
+                    </button>
+                </div>
+                <div id="resultsContent" class="results-content"></div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
