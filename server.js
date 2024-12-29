@@ -204,8 +204,13 @@ async function runAccessibilityTests(url) {
         // Launch browser with specific configuration
         browser = await chromium.launch({
             headless: true,
-            args: ['--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage'],
-            timeout: 10000 // 10 second timeout for browser launch
+            chromiumSandbox: false,
+            executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined,
+            args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage'
+            ]
         });
         
         const context = await browser.newContext({

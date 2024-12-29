@@ -2,15 +2,10 @@ services:
   - type: web
     name: accessibility-testing-tool
     env: node
-    buildCommand: npm install
+    buildCommand: npm ci
     startCommand: node server.js
     envVars:
       - key: NODE_ENV
         value: production
-    buildFilter:
-      paths:
-      - package.json
-      - package-lock.json
-      - "**/*.js"
-      - "**/*.html"
-      - "**/*.css" 
+      - key: PLAYWRIGHT_BROWSERS_PATH
+        value: 0 
