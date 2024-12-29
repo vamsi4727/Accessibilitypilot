@@ -2,10 +2,12 @@ services:
   - type: web
     name: accessibility-testing-tool
     env: node
-    buildCommand: npm ci
+    buildCommand: PLAYWRIGHT_SKIP_BROWSER_GC=1 PLAYWRIGHT_BROWSERS_PATH=0 npm install
     startCommand: node server.js
     envVars:
       - key: NODE_ENV
         value: production
       - key: PLAYWRIGHT_BROWSERS_PATH
-        value: 0 
+        value: 0
+      - key: PLAYWRIGHT_SKIP_BROWSER_GC
+        value: "1" 

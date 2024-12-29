@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD=1 npm install",
-    "postinstall": "playwright install chromium --with-deps"
+    "build": "playwright install chromium",
+    "postinstall": "playwright install-deps"
   },
   "keywords": [
     "accessibility",
@@ -30,5 +30,8 @@
   },
   "engines": {
     "node": ">=16"
+  },
+  "config": {
+    "unsafe-perm": true
   }
 }
