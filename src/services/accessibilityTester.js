@@ -1,5 +1,5 @@
-const { chromium } = require('playwright');
-const axeCore = require('axe-core');
+import { chromium } from 'playwright';
+import axeCore from 'axe-core';
 
 async function runAccessibilityTests(url) {
   const browser = await chromium.launch();
@@ -26,6 +26,4 @@ async function runAccessibilityTests(url) {
   }
 }
 
-module.exports = {
-  runAccessibilityTests
-}; 
+export { runAccessibilityTests };

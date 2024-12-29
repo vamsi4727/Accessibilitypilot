@@ -1,6 +1,6 @@
-const PDFDocument = require('pdfkit');
-const fs = require('fs');
-const path = require('path');
+import PDFDocument from 'pdfkit';
+import fs from 'fs';
+import path from 'path';
 
 async function generateReport(results) {
   const doc = new PDFDocument();
@@ -31,6 +31,4 @@ async function generateReport(results) {
   });
 }
 
-module.exports = {
-  generateReport
-}; 
+export { generateReport };

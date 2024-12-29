@@ -203,4 +203,4 @@ function generatePDFReport(results) {
     return htmlPdf.generatePdf({ content: html }, options);
 }
 
-module.exports = { generatePDFReport }; 
+export { generatePDFReport };
