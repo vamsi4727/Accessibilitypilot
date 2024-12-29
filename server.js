@@ -1,6 +1,6 @@
 import express from 'express';
 import path from 'path';
-import { chromium } from 'playwright';
+import { chromium } from 'playwright-chromium';
 import axeCore from 'axe-core';
 import { generatePDFReport } from './utils/pdfGenerator.js';
 import fs from 'fs';

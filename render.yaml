@@ -2,7 +2,12 @@ services:
   - type: web
     name: accessibility-testing-tool
     env: node
-    buildCommand: chmod +x render-build.sh && ./render-build.sh
+    buildCommand: |
+      apt-get update && \
+      apt-get install -y wget gnupg ca-certificates procps libxss1 && \
+      npm ci && \
+      npx playwright install-deps chromium && \
+      npx playwright install chromium
     startCommand: node server.js
     envVars:
       - key: NODE_ENV
@@ -16,4 +21,3 @@ services:
       - "**/*.js"
       - "package.json"
       - "package-lock.json"
-      - "render-build.sh"
