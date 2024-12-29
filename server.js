@@ -1,3 +1,19 @@
+import express from 'express';
+import path from 'path';
+import { chromium } from 'playwright';
+import axeCore from 'axe-core';
+import { generatePDFReport } from './utils/pdfGenerator.js';
+import fs from 'fs';
+import { URL } from 'url';
+import OpenAI from 'openai';
+import { calculateAccessibilityScore } from './accessibilityScore.js';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config();
 const express = require('express');
 const path = require('path');
 const { chromium } = require('playwright');

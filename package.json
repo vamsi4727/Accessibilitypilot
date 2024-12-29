@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Backend for accessibility testing tool",
   "main": "server.js",
+  "type": "commonjs",
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
@@ -20,6 +21,6 @@
     "nodemon": "^3.1.9"
   },
   "engines": {
-    "node": ">=16"
+    "node": "18.x"
   }
 }
