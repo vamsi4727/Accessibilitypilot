@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "echo 'Build step completed'",
-    "postinstall": "playwright install chromium && playwright install-deps chromium"
+    "build": "echo 'Build step completed'"
   },
   "dependencies": {
     "axe-core": "^4.8.4",
@@ -22,8 +21,5 @@
   },
   "engines": {
     "node": ">=16"
-  },
-  "cacheDirectories": [
-    "node_modules"
-  ]
+  }
 }

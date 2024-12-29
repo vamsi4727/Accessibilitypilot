@@ -17,6 +17,3 @@ services:
       - "package.json"
       - "package-lock.json"
       - "render-build.sh"
-    cacheDirectories:
-      - node_modules
-      - /ms-playwright
