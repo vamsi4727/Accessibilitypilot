@@ -7,7 +7,7 @@
  * @param {number} data.best_practices_followed - Number of best practices followed
  * @returns {Object} Accessibility score and analysis
  */
-function calculateAccessibilityScore(data) {
+export function calculateAccessibilityScore(data) {
     // Base score starts at 100
     let score = 100;
 
@@ -80,10 +80,6 @@ function calculateAccessibilityScore(data) {
     };
 }
 
-module.exports = {
-    calculateAccessibilityScore
-}; 
-
 // Test the scoring function if this file is run directly
 if (require.main === module) {
     // Test data
@@ -116,4 +112,4 @@ if (require.main === module) {
     console.log(`Minor Issues: ${minorDeductions} (${testData.minor_issues} × -2)`);
     console.log(`Best Practices Bonus: +${bestPracticesBonus} (${testData.best_practices_followed} practices, max 20)`);
     console.log(`Final Score: ${finalScore}`);
-} 
+}
