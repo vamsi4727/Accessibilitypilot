@@ -18,6 +18,13 @@ dotenv.config();
 
 const port = process.env.PORT || 3000;
 
+// Set the Playwright browsers path
+process.env.PLAYWRIGHT_BROWSERS_PATH = path.join(__dirname, 'playwright-browsers');
+
+// Ensure Playwright browsers are installed
+import { installBrowsers } from 'playwright/install';
+await installBrowsers();
+
 const app = express(); // Add this line to initialize the app
 
 // Function to find an available port
