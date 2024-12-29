@@ -1,5 +1,5 @@
-const htmlPdf = require('html-pdf-node');
-const path = require('path');
+import htmlPdf from 'html-pdf-node';
+import path from 'path';
 
 function generatePDFReport(results) {
     const html = `

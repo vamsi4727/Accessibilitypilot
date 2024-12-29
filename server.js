@@ -9,6 +9,7 @@ import OpenAI from 'openai';
 import { calculateAccessibilityScore } from './accessibilityScore.js';
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
+import net from 'net'; // Update this import
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -32,7 +33,6 @@ const findAvailablePort = async (startPort, maxAttempts = 100) => {
     throw new Error('No available ports found in valid range (0-65535)');
   }
 
-  const net = require('net');
   return new Promise((resolve, reject) => {
     const server = net.createServer();
     server.unref();

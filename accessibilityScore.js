@@ -79,37 +79,3 @@ export function calculateAccessibilityScore(data) {
         }
     };
 }
-
-// Test the scoring function if this file is run directly
-if (require.main === module) {
-    // Test data
-    const testData = {
-        critical_issues: 2,
-        major_issues: 5,
-        minor_issues: 10,
-        best_practices_followed: 15
-    };
-
-    console.log('Testing accessibility score calculation with data:');
-    console.log(JSON.stringify(testData, null, 2));
-    console.log('\nResults:');
-    console.log(JSON.stringify(calculateAccessibilityScore(testData), null, 2));
-
-    // Calculate breakdown
-    const {
-        baseScore,
-        criticalDeductions,
-        majorDeductions,
-        minorDeductions,
-        bestPracticesBonus,
-        finalScore
-    } = calculateAccessibilityScore(testData).breakdown;
-
-    console.log('\nDetailed Score Calculation:');
-    console.log(`Base Score: ${baseScore}`);
-    console.log(`Critical Issues: ${criticalDeductions} (${testData.critical_issues} × -10)`);
-    console.log(`Major Issues: ${majorDeductions} (${testData.major_issues} × -5)`);
-    console.log(`Minor Issues: ${minorDeductions} (${testData.minor_issues} × -2)`);
-    console.log(`Best Practices Bonus: +${bestPracticesBonus} (${testData.best_practices_followed} practices, max 20)`);
-    console.log(`Final Score: ${finalScore}`);
-}
