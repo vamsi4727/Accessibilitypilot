@@ -2,7 +2,7 @@ services:
   - type: web
     name: accessibility-testing-tool
     env: node
-    buildCommand: npm run build
+    buildCommand: chmod +x render-build.sh && ./render-build.sh
     startCommand: node server.js
     envVars:
       - key: NODE_ENV
@@ -16,3 +16,7 @@ services:
       - "**/*.js"
       - "package.json"
       - "package-lock.json"
+      - "render-build.sh"
+    cacheDirectories:
+      - node_modules
+      - /ms-playwright

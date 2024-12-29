@@ -363,6 +363,34 @@ function countImpacts(violations) {
     }, {});
 }
 
+const browserConfig = {
+    headless: true,
+    chromiumSandbox: false,
+    args: [
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+        '--disable-gpu'
+    ]
+};
+
+if (process.env.NODE_ENV === 'production') {
+    console.log('Running in production mode');
+    console.log('Playwright browsers path:', process.env.PLAYWRIGHT_BROWSERS_PATH);
+}
+
+try {
+    browser = await chromium.launch(browserConfig);
+    console.log('Browser launched successfully');
+} catch (error) {
+    console.error('Failed to launch browser:', error);
+    throw new AccessibilityTestError(
+        'Failed to initialize browser for testing',
+        'BROWSER_LAUNCH_ERROR',
+        error.message
+    );
+}
+
 // Test endpoint
 app.post('/test', async (req, res) => {
     console.log('Testing URL:', req.body.url);
