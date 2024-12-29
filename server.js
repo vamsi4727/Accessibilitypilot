@@ -17,6 +17,8 @@ dotenv.config();
 
 const port = process.env.PORT || 3000;
 
+const app = express(); // Add this line to initialize the app
+
 // Function to find an available port
 const findAvailablePort = async (startPort, maxAttempts = 100) => {
   console.log(`Attempting to find available port starting from ${startPort}...`);
@@ -543,4 +545,4 @@ function getImpactBackgroundColor(impact) {
     }
     process.exit(1);
   }
-})(); 
+})();
